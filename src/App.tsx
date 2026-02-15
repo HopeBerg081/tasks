@@ -1,5 +1,10 @@
 import React from "react";
 import "./App.css";
+import borderKris from "./images/borderKris.png";
+import { Button } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App(): React.JSX.Element {
     return (
@@ -7,9 +12,40 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript <b /> Hope Berg
             </header>
-            <p>
-                &quot;Hello World&quot; <b />
-            </p>
+            <img
+                src={borderKris}
+                alt="A purple lace border decorated with hearts and stripes"
+            />
+            <p>&quot;Hello World&quot; </p>
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
+            <h3>Welcome to my site &lt;3</h3> <b />
+            <p>What you may find on this page:</p>
+            <ul>
+                <li>Sugar</li>
+                <li>Spice</li>
+                <li>And everything nice</li>
+            </ul>
+            <Container>
+                <Row>
+                    <Col>
+                        <div
+                            style={{
+                                width: "550px",
+                                height: "20px",
+                                backgroundColor: "red",
+                            }}
+                        >
+                            {" "}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
