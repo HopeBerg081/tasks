@@ -43,5 +43,5 @@
 .red-rectangle {
     width: 30px;
     height: 10px;
-    background-color: red;
+    background-color: "red";
 }

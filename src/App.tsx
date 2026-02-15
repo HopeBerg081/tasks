@@ -25,27 +25,24 @@ function App(): React.JSX.Element {
                 Log Hello World
             </Button>
             <h3>Welcome to my site &lt;3</h3> <b />
-            <p>
-                What you may find on this page:
-                <ul>
-                    <li>Sugar</li>
-                    <li>Spice</li>
-                    <li>And everything nice</li>
-                </ul>
-            </p>
+            <p>What you may find on this page:</p>
+            <ul>
+                <li>Sugar</li>
+                <li>Spice</li>
+                <li>And everything nice</li>
+            </ul>
             <Container>
                 <Row>
                     <Col>
-                        <div className="red-rectangle"> </div>
-                    </Col>
-                    <Col>
-                        <div className="red-rectangle"> </div>
-                    </Col>
-                    <Col>
-                        <div className="red-rectangle"> </div>
-                    </Col>
-                    <Col>
-                        <div className="red-rectangle"> </div>
+                        <div
+                            style={{
+                                width: "550px",
+                                height: "20px",
+                                backgroundColor: "red",
+                            }}
+                        >
+                            {" "}
+                        </div>
                     </Col>
                 </Row>
             </Container>
