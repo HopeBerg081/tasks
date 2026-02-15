@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import borderKris from "./images/borderKris.png";
+import { Button } from "react-bootstrap";
 
 function App(): React.JSX.Element {
     return (
@@ -13,6 +14,15 @@ function App(): React.JSX.Element {
                 alt="A purple lace border decorated with hearts and stripes"
             />
             <p>&quot;Hello World&quot; </p>
+            <div>
+                <Button
+                    onClick={() => {
+                        console.log("Hello World!");
+                    }}
+                >
+                    Log Hello World
+                </Button>
+            </div>
             <h3>Welcome to my site &lt;3</h3> <b />
             <p>
                 What you may find on this page:
