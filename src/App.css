@@ -39,3 +39,9 @@
         transform: rotate(360deg);
     }
 }
+
+.red-rectangle {
+    width: 30px;
+    height: 10px;
+    background-color: red;
+}

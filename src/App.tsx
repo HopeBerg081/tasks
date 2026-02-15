@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import borderKris from "./images/borderKris.png";
 import { Button } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App(): React.JSX.Element {
     return (
@@ -14,15 +17,13 @@ function App(): React.JSX.Element {
                 alt="A purple lace border decorated with hearts and stripes"
             />
             <p>&quot;Hello World&quot; </p>
-            <div>
-                <Button
-                    onClick={() => {
-                        console.log("Hello World!");
-                    }}
-                >
-                    Log Hello World
-                </Button>
-            </div>
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
             <h3>Welcome to my site &lt;3</h3> <b />
             <p>
                 What you may find on this page:
@@ -32,6 +33,22 @@ function App(): React.JSX.Element {
                     <li>And everything nice</li>
                 </ul>
             </p>
+            <Container>
+                <Row>
+                    <Col>
+                        <div className="red-rectangle"> </div>
+                    </Col>
+                    <Col>
+                        <div className="red-rectangle"> </div>
+                    </Col>
+                    <Col>
+                        <div className="red-rectangle"> </div>
+                    </Col>
+                    <Col>
+                        <div className="red-rectangle"> </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
