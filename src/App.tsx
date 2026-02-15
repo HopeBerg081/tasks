@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import borderKris from "./images/borderKris.png";
 
 function App(): React.JSX.Element {
     return (
@@ -7,7 +8,10 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript <b /> Hope Berg
             </header>
-            <img src={"./src/images/borderKris.png"} />
+            <img
+                src={borderKris}
+                alt="A purple lace border decorated with hearts and stripes"
+            />
             <p>&quot;Hello World&quot; </p>
             <h3>Welcome to my site &lt;3</h3> <b />
             <p>
