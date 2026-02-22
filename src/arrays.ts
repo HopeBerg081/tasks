@@ -51,7 +51,7 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-	return messages.filter(messages => !message.endsWith("?")).map(message => message.endsWith("!") ? message.toUpperCase() : message);
+	return messages.filter(message => !message.endsWith("?")).map(message => message.endsWith("!") ? message.toUpperCase() : message);
 };
 
 /**
@@ -111,6 +111,6 @@ export function injectPositive(values: number[]): number[] {
 	if (firstNeg === -1) {
 		return [...values, sum];
 	}
-	return [...values.slice(0, firstNeg + 1), sum, ...values.slice(firstNeg) + 1];
+	return [...values.slice(0, firstNeg + 1), sum, ...values.slice(firstNeg +1)];
 
 }
