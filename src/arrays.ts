@@ -6,7 +6,7 @@
  */
 export function bookEndList(numbers: number[]): number[] {
 	if (numbers.length === 0) {
-		return[];
+		return [];
 	} else if (numbers.length === 1) {
 		return [numbers[0], numbers[0]];
 	} else {
@@ -27,7 +27,10 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-	return numbers.map(num => isNaN(Number(num)) ? 0 : Number(num)); 
+	return numbers.map(num => {
+		const parsed = Number(num);
+		return Number.isNaN(parsed) ? 0 : parsed;
+	});
 }
 
 /**
@@ -41,7 +44,7 @@ export const removeDollars = (amounts: string[]): number[] => {
 	return amounts.map(amount => { 
 		const num = amount.replace("$", "");
 		const finNum = Number(num);
-		return isNaN(finNum) ? 0 : finNum;
+		return Number.isNaN(finNum) ? 0 : finNum;
 	});
 };
 
