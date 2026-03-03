@@ -6,11 +6,19 @@ import { Question, QuestionType } from "./interfaces/question";
  * should default to 1, and `published` should default to false.
  */
 export function makeBlankQuestion(
-    id: number,
-    name: string,
-    type: QuestionType
+	id: number,
+	name: string,
+	type: QuestionType
 ): Question {
-    return {};
+	id: id,
+	name: name,
+	type: type,
+	body: "",
+	expected: "",
+	options: [],
+	points: 1,
+	published: false
+	return {};
 }
 
 /**
@@ -21,7 +29,12 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+	const trimAnswer = answer.trim();
+	const simpleAnswer = trimAnswer.toLowerCase();
+	if (simpleAnswer == question.expected) {
+		return true;
+	}	
+	return false;
 }
 
 /**
