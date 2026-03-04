@@ -154,11 +154,12 @@ export function addNewQuestion(
  * Question should be the same EXCEPT that its name should now be `newName`.
  */
 export function renameQuestionById(
-    questions: Question[],
-    targetId: number,
-    newName: string,
+	questions: Question[],
+	targetId: number,
+	newName: string,
 ): Question[] {
-    return [];
+	const targetIndex = questions.findIndex(question => question.id = targetId);
+	return questions.map(question => question[targetIndex] ? {...question, name: newName } : question); 
 }
 
 /***
