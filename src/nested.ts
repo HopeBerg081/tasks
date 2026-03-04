@@ -45,8 +45,7 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-	return questions.reduce(
-	(questNames: string[], question: Question) => question.name); 
+	return questions.map(question => question.name); 
 }
 
 /***
