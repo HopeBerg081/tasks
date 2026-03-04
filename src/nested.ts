@@ -125,7 +125,11 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+	const allType: string = questions[0].type;
+	if (questions.find(question => question.type != allType) != null) {
+		return false;	
+	}
+	return true;
 }
 
 /***
@@ -134,12 +138,14 @@ export function sameType(questions: Question[]): boolean {
  * you defined in the `objects.ts` file.
  */
 export function addNewQuestion(
-    questions: Question[],
-    id: number,
-    name: string,
-    type: QuestionType,
+	questions: Question[],
+	id: number,
+	name: string,
+	type: QuestionType,
 ): Question[] {
-    return [];
+	const updatedQuests: Questions[] = questions.map(questions => ({...question});
+	const newQuest: Question = makeBlankQuestion(id, name, type);
+	return updatedQuests.push(newQuest);
 }
 
 /***
