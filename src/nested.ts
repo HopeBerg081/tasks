@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects"
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -125,11 +126,11 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-	const allType: string = questions[0].type;
-	if (questions.find(question => question.type != allType) != null) {
-		return false;	
+	if (questions.length === 0) {
+		return true;
 	}
-	return true;
+	const firstType: string = questions[0].type;
+	return questions.every(question => question.type === firstType);
 }
 
 /***
@@ -143,9 +144,8 @@ export function addNewQuestion(
 	name: string,
 	type: QuestionType,
 ): Question[] {
-	const updatedQuests: Questions[] = questions.map(questions => ({...question});
 	const newQuest: Question = makeBlankQuestion(id, name, type);
-	return updatedQuests.push(newQuest);
+	return [...questions, newQuest];
 }
 
 /***
