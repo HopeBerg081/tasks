@@ -79,7 +79,7 @@ export function toShortForm(question: Question): string {
 export function toMarkdown(question: Question): string {
 	return `# ${question.name}
 	${question.body}
-	`;
+	${question.options.map(question => question.type == "multiple_choice_question") ? '- ${question.options}`}`;
 }
 
 /**
