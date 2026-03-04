@@ -170,15 +170,14 @@ export function renameQuestionById(
  * must be set to an empty list.
  */
 export function changeQuestionTypeById(
-    questions: Question[],
-    targetId: number,
-    newQuestionType: QuestionType,
+	questions: Question[],
+	targetId: number,
+	newQuestionType: QuestionType,
 ): Question[] {
 	return questions.map(question => question.id === targetId ? {
 		...question, 
 		type: newQuestionType,
-		newQuestionType != "multiple_choice_question" ?
-			{question.options: []}
+		options: newQuestionType !== "multiple_choice_question" ? [] : question.options,
 		} : question
 	);
 }
@@ -194,12 +193,20 @@ export function changeQuestionTypeById(
  * can make it simpler! Break down complicated tasks into little pieces.
  */
 export function editOption(
-    questions: Question[],
-    targetId: number,
-    targetOptionIndex: number,
-    newOption: string,
+	questions: Question[],
+	targetId: number,
+	targetOptionIndex: number,
+	newOption: string,
 ): Question[] {
-    return [];
+	return questions.map(question => question.id === targetId ? {
+		...question,
+		options: targetOptionIndex === -1 ?
+			[...question.options, newOption]
+			: question.options.map((option,index) =>
+				index === targetOptionIndex ? newOption : option
+			),
+		} : question
+	);  
 }
 
 /***
