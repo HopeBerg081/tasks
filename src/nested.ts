@@ -158,8 +158,8 @@ export function renameQuestionById(
 	targetId: number,
 	newName: string,
 ): Question[] {
-	const targetIndex = questions.findIndex(question => question.id = targetId);
-	return questions.map(question => question[targetIndex] ? {...question, name: newName } : question); 
+	return questions.map(question => 
+		question.id === targetId ? {...question, name: newName } : question); 
 }
 
 /***
@@ -174,7 +174,13 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType,
 ): Question[] {
-    return [];
+	return questions.map(question => question.id === targetId ? {
+		...question, 
+		type: newQuestionType,
+		newQuestionType != "multiple_choice_question" ?
+			{question.options: []}
+		} : question
+	);
 }
 
 /**
