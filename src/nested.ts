@@ -30,8 +30,8 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  * question is not found, return `null` instead.
  */
 export function findQuestion(questions: Question[],id: number): Question | null {
-	const found: boolean = questions.find(question => question.id === id);
-	return found ?? null
+	const found: Question | undefined = questions.find(question => question.id === id);
+	return found ?? null;
 }
 
 /**
@@ -62,7 +62,7 @@ export function sumPoints(questions: Question[]): number {
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-	return questions.filter(question => question.published == true).reduce(
+	return questions.filter(question => question.published).reduce(
 	(currentSum: number, question: Question) => currentSum + question.points, 0);
 }
 
