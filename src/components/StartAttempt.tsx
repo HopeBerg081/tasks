@@ -7,36 +7,27 @@ export function StartAttempt(): React.JSX.Element {
     return (
         <div>
             <Button
-                onClick={
-                    !progress && attempts !== 0 ?
-                        () => {
-                            setProgress(true);
-                            setAttempts(attempts - 1);
-                        }
-                    :   undefined
-                }
+                disabled={progress || attempts <= 0}
+                onClick={() => {
+                    setProgress(true);
+                    setAttempts((prev) => prev - 1);
+                }}
             >
                 Start Quiz
             </Button>
             <Button
-                onClick={
-                    progress ?
-                        () => {
-                            setProgress(false);
-                        }
-                    :   undefined
-                }
+                disabled={!progress}
+                onClick={() => {
+                    setProgress(false);
+                }}
             >
                 Stop Quiz
             </Button>
             <Button
-                onClick={
-                    !progress ?
-                        () => {
-                            setAttempts(attempts + 1);
-                        }
-                    :   undefined
-                }
+                disabled={progress}
+                onClick={() => {
+                    setAttempts((prev) => prev + 1);
+                }}
             >
                 Mulligan
             </Button>
