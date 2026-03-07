@@ -11,6 +11,7 @@ export function StartAttempt(): React.JSX.Element {
                     !progress && attempts !== 0 ?
                         () => {
                             setProgress(true);
+                            setAttempts(attempts - 1);
                         }
                     :   undefined
                 }
@@ -39,6 +40,7 @@ export function StartAttempt(): React.JSX.Element {
             >
                 Mulligan
             </Button>
+            <p>Attempts Left: {attempts}</p>
         </div>
     );
 }
