@@ -2,31 +2,35 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): React.JSX.Element {
-    type Holiday =
-        | "Halloween"
-        | "Christmas"
-        | "Rosh Hashanah"
-        | "Valentine's Day"
-        | "Christmas Eve";
-    const [holiday, setHoliday] = useState<Holiday>("Halloween");
+    type Holiday = "🎃" | "🎄" | "🐝" | "💝" | "🎁";
+    const [holiday, setHoliday] = useState<Holiday>("💝");
     const SORT_ALPHABET: Record<Holiday, Holiday> = {
-        Christmas: "Christmas Eve",
-        "Christmas Eve": "Halloween",
-        Halloween: "Rosh Hashanah",
-        "Rosh Hashana": "Valentine's Day",
-        "Valentine's Day": "Christmas",
+        "🎁": "🎄",
+        "🎄": "🎃",
+        "🎃": "🐝",
+        "🐝": "💝",
+        "💝": "🎁",
     };
-    const SORT_TIME: Record<Holiday, Holiday> = {
-        "Valentine's Day": "Rosh Hashanah",
-        "Rosh Hashana": "Halloween",
-        Halloween: "Christmas Eve",
-        "Christmas Eve": "Christmas",
-        Christmas: "Valentine's Day",
+    const SORT_YEAR: Record<Holiday, Holiday> = {
+        "💝": "🐝",
+        "🐝": "🎃",
+        "🎃": "🎄",
+        "🎄": "🎁",
+        "🎁": "💝",
     };
+    function sortByAlphabet(): void {
+        const newHoliday = SORT_ALPHABET[holiday];
+        setHoliday(newHoliday);
+    }
+    function sortByYear(): void {
+        const newHoliday = SORT_YEAR[holiday];
+        setHoliday(newHoliday);
+    }
     return (
         <div>
-            <Button>Cycle by Alphabetical Order</Button>
-            <Button>Cycle by Time in Year</Button>
+            <p>Holiday: {holiday}</p>
+            <Button onClick={sortByAlphabet}>Advance by Alphabet</Button>
+            <Button onClick={sortByYear}>Advance by Year</Button>
         </div>
     );
 }
