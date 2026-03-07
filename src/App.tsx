@@ -18,9 +18,9 @@ function App(): React.JSX.Element {
             <hr />
             <RevealAnswer></RevealAnswer>
             <hr />
-            {/* <StartAttempt></StartAttempt>
+            <StartAttempt></StartAttempt>
             <hr />
-            <TwoDice></TwoDice>
+            {/* <TwoDice></TwoDice>
             <hr /> */}
             <ChangeType></ChangeType>
             <hr />
