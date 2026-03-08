@@ -16,8 +16,9 @@ export function ChooseTeam(): React.JSX.Element {
 
     function chooseMember(newMember: string) {
         if (!team.includes(newMember)) {
-        setTeam(prevTeam => [...prevTeam, newMember]);
-        setAllOptions(prevAllOptions => prevAllOptions.filter(PEOPLE => PEOPLE !== newMember));
+            setTeam(prevTeam => [...prevTeam, newMember]);
+            setAllOptions(prevAllOptions => prevAllOptions.filter(PEOPLE => PEOPLE !== newMember));
+        }
     }
 
     function clearTeam() {
@@ -33,7 +34,7 @@ export function ChooseTeam(): React.JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={() => {chooseMember(option)}} size="sm">
+                            <Button onClick={() => chooseMember(option)} size="sm">
                                 {option}
                             </Button>
                         </div>
@@ -44,7 +45,7 @@ export function ChooseTeam(): React.JSX.Element {
                     {team.map((member: string) => (
                         <li key={member}>{member}</li>
                     ))}
-                    <Button onClick={() => {clearTeam()}}>Clear Team</Button>
+                    <Button onClick={() => clearTeam()}>Clear Team</Button>
                 </Col>
             </Row>
         </div>
