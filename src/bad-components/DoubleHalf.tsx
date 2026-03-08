@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 interface DhProps {
-    setDhValue: (newDhNumber : number) => number;
+    setDhValue: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function Doubler({setDhValue}: DhProps): React.JSX.Element {
     return (
-        <Button onClick= {() => setDhValue((prev) => prev * 2)}>
+        <Button onClick = {() => {setDhValue((prev) => prev * 2)}}>
         Double</Button>
     );
 }
 
-function Halver(): React.JSX.Element {
+function Halver({setDhValue}: DhProps): React.JSX.Element {
     return (
-        <Button onClick {() => setDhValue((prev)=> prev * 0.5)}>
+        <Button onClick = {() => {setDhValue((prev)=> prev * 0.5)}}>
         Halve</Button>
     );
 }
@@ -27,7 +27,7 @@ export function DoubleHalf(): React.JSX.Element {
             <div>
                 The current value is: <span>{dhValue}</span>
             </div>
-            <Doubler setDhCalue = {setDhValue} />
+            <Doubler setDhValue = {setDhValue} />
             <Halver setDhValue = {setDhValue} />
         </div>
     );
