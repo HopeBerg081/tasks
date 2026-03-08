@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { dhValue, setDhValue } from "./DoubleHalfState";
 
 export function DoubleHalf(): React.JSX.Element {
-    const [dhValue, setDhValue] = useState<number>(1); //Need to define state before using it
-    
+    const [dhValue, setDhValue] = useState<number>(10);
+
     function Doubler(): void { //Function needs to be within the larger function
         setDhValue((prev) => prev * 2); //Using prev can prevent errors
     }
@@ -19,7 +18,7 @@ export function DoubleHalf(): React.JSX.Element {
                 The current value is: <span>{dhValue}</span>
             </div>
             <Button onClick = {Doubler}>Double</Button>
-            <Button onClick = {Halver()}>Halver</Button>
+            <Button onClick = {Halver}>Halver</Button>
         </div>
     );
 }
