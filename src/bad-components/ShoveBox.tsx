@@ -28,24 +28,23 @@ function MoveableBox(): React.JSX.Element {
                 border: "1px solid blue",
                 display: "inline-block",
                 verticalAlign: "bottom",
-                marginLeft: {position} + "px",
+                marginLeft: position + "px",
             }}
         ></div>
     );
 }
 
 export function ShoveBox({position, setPosition} : positionProps): React.JSX.Element {
-    const box = MoveableBox();
     return (
         <div>
             <h3>Shove Box</h3>
-            <span>The box is at: {box.position}</span>
+            <span>The box is at: {position}</span>
             <div>
                 <ShoveBoxButton
-                    position={box.position}
-                    setPosition={box.setPosition}
+                    position={position}
+                    setPosition={setPosition}
                 ></ShoveBoxButton>
-                {box}
+                box
             </div>
         </div>
     );
