@@ -17,10 +17,10 @@ export function EditMode(): React.JSX.Element {
     return (
         <div>
             <Form.Group controlId = "formChooseEditMode">
-                <Form.Label>Edit Mode</Form.Label>
                 <Form.Check
                     type = "switch"
                     id = "edit-mode-check"
+                    label = "Edit Mode?"
                     checked = {editMode}
                     onChange = {updateEditMode}
                 />
@@ -30,16 +30,17 @@ export function EditMode(): React.JSX.Element {
                     <Form.Group controlId = "formEditUserName">
                         <Form.Label>Username</Form.Label>
                         <Form.Control
-                            type = "userName"
+                            type = "text"
                             value = {userName}
                             onChange = {updateUserName}
                         />
                     </Form.Group>
                     <Form.Group controlId = "formEditIsStudent">
-                        <Form.Label>Are you a student? </Form.Label>
+
                         <Form.Check
                             type = "switch"
-                            id = "is-student-check"
+                            label = "Student?"
+                            id = "formEditIsStudent"
                             checked = {isStudent}
                             onChange = {updateIsStudent}
                         />
