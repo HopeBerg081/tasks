@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 export function GiveAttempts(): React.JSX.Element {
     const [attempts, setAttempts] = useState<number>(3);
-    function updateAttempts(event: React.ChangeEvent<HTMLInputElement>) {
-        const attemptNum = parseInt(event.target.value);
-        if (!Number.isNaN(attemptNum)) {
-            setAttempts(attemptNum);
-        } else {
-            return;
+    const [requests, setRequests] = useState<string>("");
+    function updateRequests(event: React.ChangeEvent<HTMLInputElement>) {
+        setRequests(event.target.value);
+    }
+    function updateAttempts() {
+        let requestNum : number = parseInt(requests);
+        if (!Number.isNaN(requestNum)) {
+            setAttempts((prev) => prev + requestNum);
         }
     }
     return (
@@ -21,12 +22,12 @@ export function GiveAttempts(): React.JSX.Element {
                     <Button
                         disabled = {attempts <= 0}
                         onClick ={()=> {setAttempts(attempts - 1)}}>use</Button>
-                    <Button onClick ={()=> {setAttempts(attempts + 1)}}>gain</Button>
+                    <Button onClick ={()=> {updateAttempts()}}>gain</Button>
                 </div>
                 <Form.Control
                     type = "number"
-                    value={attempts}
-                    onChange={updateAttempts}
+                    value={requests}
+                    onChange={updateRequests}
                 />
             </Form.Group>
         </div>
