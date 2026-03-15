@@ -18,12 +18,15 @@ export function ChangeColor(): React.JSX.Element {
                     name = "color"
                     onChange = {updateColor}
                     id = {`color-check-${c}`}
-                    label = {c}
+                    label = {<span style={{backgroundColor: c}}>{c}</span>}
                     value = {c}
                     checked = {color === c}
                 />
             ))}
-            <div>You have chosen <span style={{backgroundColor: color}}>{color}</span>.</div>
+            <div>You have chosen{" "} <span
+                data-testid = "colored-box"
+                style={{backgroundColor: color}}>{color}</span>
+            </div>
         </div>
     );
 }
