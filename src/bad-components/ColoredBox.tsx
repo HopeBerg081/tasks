@@ -15,7 +15,7 @@ function ChangeColor({colorIndex, setColorIndex}: colorIndexProps): React.JSX.El
             onClick={() => {
                 setColorIndex((1 + colorIndex) % COLORS.length);
             }}
-        >
+        > 
             Next Color
         </Button>
     );
